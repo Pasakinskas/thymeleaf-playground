@@ -1,0 +1,7 @@
+.form-error {
+    border: 2px solid red;
+}
+
+.comment-form-input {
+    margin-bottom: 10px;
+}
