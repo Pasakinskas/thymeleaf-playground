@@ -25,13 +25,13 @@
         <div class="form-container">
             <form data-th-action="@{/comments}" data-th-object="${comment}" data-th-method="POST">
                 <ul data-th-if="${#fields.hasErrors('*')}">
-                    <li data-th-each="err : ${#fields.errors('*')}" data-th-text="${err}">bad input</li>
+                    <li data-th-each="err : ${#fields.errors('*')}" data-th-text="${err}">Input is incorrect</li>
                 </ul>
                 <input
                     type="text"
                     placeholder="name"
                     data-th-field="*{name}"
-                    data-th-errorclass="form-error comment-form-input"
+                    data-th-errorclass="form-error"
                     class="form-control comment-form-input"
                     required
                 />
@@ -39,7 +39,7 @@
                     type="text"
                     placeholder="surname"
                     data-th-field="*{surname}"
-                    data-th-errorclass="form-error comment-form-input"
+                    data-th-errorclass="form-error"
                     class="form-control comment-form-input"
                     required
                 />
@@ -47,6 +47,14 @@
                     type="text"
                     placeholder="email"
                     data-th-field="*{email}"
+                    data-th-errorclass="form-error"
+                    class="form-control comment-form-input"
+                    required
+                />
+                <input
+                    type="text"
+                    placeholder="repeat email"
+                    data-th-field="*{repeatedEmail}"
                     data-th-errorclass="form-error"
                     class="form-control comment-form-input"
                     required

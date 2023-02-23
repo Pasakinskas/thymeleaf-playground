@@ -4,7 +4,7 @@
 
     <appender name="STDOUT" class="ConsoleAppender">
         <encoder class="PatternLayoutEncoder">
-            <pattern>%d{HH:mm:ss.SSS} %highlight(%-5level) %yellow(%logger{36}) -- %msg%n</pattern>
+            <pattern>%highlight(%date{HH:mm:ss.SSSS}) %highlight(%-5level) %-50(%yellow(%logger{0})) -- %message %n</pattern>
         </encoder>
     </appender>
 
