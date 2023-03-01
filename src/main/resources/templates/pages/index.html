@@ -1,90 +1,20 @@
 <!DOCTYPE HTML>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link data-th-rel="stylesheet" data-th-href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
-    <script src="/webjars/jquery/3.6.0/jquery.min.js"></script>
-    <link rel="stylesheet" data-th-href="@{css/style.css}">
-    <script type="text/javascript" data-th-src="@{js/script.js}" defer></script>
-</head>
-<body>
-    <main class="container-fluid">
-        <div class="jombotron text-center comment-form-container">
-            <h1>Leave your comment</h1>
-
-            <button class="btn btn-danger" data-th-onclick="displayAlert()">Alert</button>
-            <button class="btn btn-info">IMPORTANT</button>
-            <button class="btn btn-primary">IMPORTANT</button>
-            <button class="btn btn-secondary">IMPORTANT</button>
-        </div>
-        <div class="form-container">
-            <form data-th-action="@{/comments}" data-th-object="${comment}" data-th-method="POST">
-                <ul data-th-if="${#fields.hasErrors('*')}">
-                    <li data-th-each="err : ${#fields.errors('*')}" data-th-text="${err}">Input is incorrect</li>
-                </ul>
-                <input
-                    type="text"
-                    placeholder="name"
-                    data-th-field="*{name}"
-                    data-th-errorclass="form-error"
-                    class="form-control comment-form-input"
-                    required
-                />
-                <input
-                    type="text"
-                    placeholder="surname"
-                    data-th-field="*{surname}"
-                    data-th-errorclass="form-error"
-                    class="form-control comment-form-input"
-                    required
-                />
-                <input
-                    type="text"
-                    placeholder="email"
-                    data-th-field="*{email}"
-                    data-th-errorclass="form-error"
-                    class="form-control comment-form-input"
-                    required
-                />
-                <input
-                    type="text"
-                    placeholder="repeat email"
-                    data-th-field="*{repeatedEmail}"
-                    data-th-errorclass="form-error"
-                    class="form-control comment-form-input"
-                    required
-                />
-                <textarea
-                    placeholder="enter your comment"
-                    data-th-field="*{content}"
-                    data-th-errorclass="form-error"
-                    class="form-control comment-form-input">
-                </textarea>
-                <small class="form-text text-muted">Up to 500 symbols</small>
-                <button type="submit" class="btn btn-primary">create comment</button>
-            </form>
-        </div>
-        <div class="container comments-section">
-            <ul>
-                <li class="comment-li" data-th-each="comment : ${comments}">
-                    <div class="comment-container" id="${comment.id}">
-                        <div class="comment-owner-details">
-                            <h6 class="text-muted" data-th-text="${comment.name}"></h6>
-                            <p data-th-text="${comment.email}"></p>
-                        </div>
-                        <p class="text-muted" data-th-text="${comment.content}">comment content</p>
-                        <form data-th-action="@{/comments/{id}(id=${comment.id})}" data-th-method="delete">
-                            <button class="btn btn-danger" data-th-onclick="submit">delete</button>
-                        </form>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </main>
-</body>
+    <head data-th-replace="~{partials/head(title='index page')}"></head>
+    <body>
+    <nav class="nav">
+        <ul>
+            <li><a href="/about">about</a></li>
+            <li><a href="/">home</a></li>
+        </ul>
+    </nav>
+        <main class="container-fluid">
+            <div class="jombotron text-center comment-form-container">
+                <h1>Leave your comment</h1>
+            </div>
+            <div class="form-container" data-th-insert="~{partials/comments/createform}"></div>
+            <th:fragment data-th-replace="~{partials/comments/comments}"></th:fragment>
+        </main>
+        <footer data-th-replace="~{partials/footer(pagetitle='index')}"></footer>
+    </body>
 </html>

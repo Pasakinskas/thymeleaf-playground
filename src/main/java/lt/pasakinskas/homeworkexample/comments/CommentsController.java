@@ -1,5 +1,6 @@
 package lt.pasakinskas.homeworkexample.comments;
 
+import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,10 +21,14 @@ public class CommentsController {
   }
 
   @GetMapping("/")
-  public String getComments(Model model) {
+  public String getComments(
+    HttpSession session,
+    Model model
+  ) {
     var comments = repository.findAll();
     model.addAttribute("comments", comments);
     model.addAttribute("comment", new Comment());
+
     return "/pages/index";
   }
 

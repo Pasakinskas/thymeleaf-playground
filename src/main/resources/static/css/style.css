@@ -5,3 +5,20 @@
 .comment-form-input {
     margin-bottom: 10px;
 }
+
+.comment-li {
+    border: 1px solid black;
+}
+
+.comments {
+    list-style: none;
+}
+
+.comment-owner-details > * {
+    display: inline-block;
+}
+
+.language-bar {
+    list-style: none;
+    display: inline;
+}

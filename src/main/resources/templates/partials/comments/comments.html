@@ -1,0 +1,16 @@
+<div class="container comments-section">
+    <ul class="comments">
+        <li class="comment-li text-center" data-th-each="comment : ${comments}">
+            <div class="comment-container" id="${comment.id}">
+                <div class="comment-owner-details text-left">
+                    <h6 class="text-muted" data-th-text="${comment.name}"></h6>
+                    <p data-th-text="${comment.email}"></p>
+                </div>
+                <p class="text-muted" data-th-text="${comment.content}">comment content</p>
+                <form data-th-action="@{/comments/{id}(id=${comment.id})}" data-th-method="delete">
+                    <button class="btn btn-danger" data-th-onclick="submit">delete</button>
+                </form>
+            </div>
+        </li>
+    </ul>
+</div>
