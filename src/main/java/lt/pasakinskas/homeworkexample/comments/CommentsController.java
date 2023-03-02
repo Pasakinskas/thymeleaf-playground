@@ -7,11 +7,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.support.SessionStatus;
 
 @Controller
 @Slf4j
+@SessionAttributes({"comments"})
 public class CommentsController {
 
   private CommentsRepository repository;
@@ -23,9 +24,11 @@ public class CommentsController {
   @GetMapping("/")
   public String getComments(
     HttpSession session,
-    Model model
+    Model model,
+    SessionStatus status
   ) {
     var comments = repository.findAll();
+
     model.addAttribute("comments", comments);
     model.addAttribute("comment", new Comment());
 
@@ -33,7 +36,11 @@ public class CommentsController {
   }
 
   @PostMapping("/comments")
-  public String createComment(@Valid Comment comment, BindingResult errors) {
+  public String createComment(
+    @Valid Comment comment,
+    BindingResult errors,
+    HttpSession session
+    ) {
     if (errors.hasErrors()) {
       return "/pages/index";
     }

@@ -1,8 +1,12 @@
 <html>
     <head data-th-replace="~{partials/head}"></head>
     <body>
+        <header data-th-replace="~{partials/header}"></header>
         <main>
             <div class="container">
+                <div data-th-unless="${session.cookiebanner}">
+                    <div data-th-replace="~{partials/cookie-banner}"></div>
+                </div>
                 <div class="jumbotron text-center">
                     <h1>About us</h1>
                 </div>

@@ -1,5 +1,15 @@
+.site-navbar {
+    background: gray;
+    color: white;
+}
+
 .form-error {
     border: 2px solid red;
+}
+
+.create-comments-section {
+  max-width: 22rem;
+  margin: 0 auto;
 }
 
 .comment-form-input {
@@ -18,7 +28,22 @@
     display: inline-block;
 }
 
-.language-bar {
+.option-bar {
     list-style: none;
-    display: inline;
+    padding: 0;
+}
+
+.nav-bar-option {
+    display: inline-block;
+}
+
+.footer-text {
+    margin-bottom: 5px;
+}
+
+.cookie-box {
+    margin: 10px auto;
+    border: 2px solid red;
+    max-width: fit-content;
+    padding: 30px;
 }

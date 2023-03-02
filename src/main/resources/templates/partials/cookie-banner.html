@@ -1,0 +1,8 @@
+<div class="cookie-box text-center">
+    <h3 data-th-text="#{cookie.banner.title}"></h3>
+    <p data-th-text="#{cookie.banner.explanation}"></p>
+    <form class="d-inline" data-th-action="@{/cookie-consent}" data-th-method="POST">
+        <button class="btn btn-secondary" type="submit" data-th-text="#{cookie.banner.accept}"></button>
+    </form>
+    <a class="btn btn-secondary" href="https://www.google.com" data-th-text="#{cookie.banner.reject}"></a>
+</div>

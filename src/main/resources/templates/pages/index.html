@@ -2,19 +2,19 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
     <head data-th-replace="~{partials/head(title='index page')}"></head>
     <body>
-    <nav class="nav">
-        <ul>
-            <li><a href="/about">about</a></li>
-            <li><a href="/">home</a></li>
-        </ul>
-    </nav>
+        <header data-th-replace="~{partials/header}"></header>
         <main class="container-fluid">
-            <div class="jombotron text-center comment-form-container">
-                <h1>Leave your comment</h1>
+            <div data-th-unless="${session.cookiebanner}">
+                <div data-th-replace="~{partials/cookie-banner}"></div>
             </div>
-            <div class="form-container" data-th-insert="~{partials/comments/createform}"></div>
+            <section class="create-comments-section text-center">
+                <div class="jombotron text-center">
+                    <h1>Leave your comment</h1>
+                </div>
+                <div class="form-container" data-th-insert="~{partials/comments/createform}"></div>
+            </section>
             <th:fragment data-th-replace="~{partials/comments/comments}"></th:fragment>
         </main>
-        <footer data-th-replace="~{partials/footer(pagetitle='index')}"></footer>
+        <footer data-th-replace="~{partials/footer}"></footer>
     </body>
 </html>
