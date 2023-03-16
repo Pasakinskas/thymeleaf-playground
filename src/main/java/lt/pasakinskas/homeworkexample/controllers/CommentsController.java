@@ -51,7 +51,7 @@ public class CommentsController {
   }
 
   @DeleteMapping("/comments/{id}")
-  public String createComment(@PathVariable Long id) {
+  public String deleteComment(@PathVariable Long id) {
     repository.deleteById(id);
     return "redirect:/";
   }

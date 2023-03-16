@@ -52,7 +52,6 @@ public class CommentsControllerIT {
       .andExpect(status().is3xxRedirection())
       .andExpect(header().string("Location", "/"));
 
-
     Mockito.verify(commentsRepository).save(any());
   }
 }

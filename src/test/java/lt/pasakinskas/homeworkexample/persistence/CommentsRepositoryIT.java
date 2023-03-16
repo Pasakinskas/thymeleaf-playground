@@ -37,4 +37,9 @@ public class CommentsRepositoryIT {
     var persistedComment = entityManager.find(Comment.class, savedComment.getId());
     assertEquals(persistedComment, savedComment);
   }
+
+  @Test
+  public void whenGettingAllComments_itRetrievesSavedComments() {
+
+  }
 }
