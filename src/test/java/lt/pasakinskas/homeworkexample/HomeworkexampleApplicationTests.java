@@ -9,5 +9,4 @@ class HomeworkexampleApplicationTests {
 	@Test
 	void contextLoads() {
 	}
-
 }

@@ -1,4 +1,4 @@
-package lt.pasakinskas.homeworkexample.cookies;
+package lt.pasakinskas.homeworkexample.controllers;
 
 import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;

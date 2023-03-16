@@ -1,8 +1,10 @@
-package lt.pasakinskas.homeworkexample.comments;
+package lt.pasakinskas.homeworkexample.controllers;
 
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
+import lt.pasakinskas.homeworkexample.models.Comment;
+import lt.pasakinskas.homeworkexample.persistence.CommentsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -50,7 +52,6 @@ public class CommentsController {
 
   @DeleteMapping("/comments/{id}")
   public String createComment(@PathVariable Long id) {
-    System.out.println(id);
     repository.deleteById(id);
     return "redirect:/";
   }

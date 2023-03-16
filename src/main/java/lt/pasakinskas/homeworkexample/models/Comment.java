@@ -1,4 +1,4 @@
-package lt.pasakinskas.homeworkexample.comments;
+package lt.pasakinskas.homeworkexample.models;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
@@ -15,6 +15,7 @@ import lt.pasakinskas.homeworkexample.validation.safeField.SafeField;
 @Setter
 @ToString
 @RequiredArgsConstructor
+@AllArgsConstructor
 @RepeatedEmail
 public class Comment {
 

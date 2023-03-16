@@ -1,5 +1,6 @@
-package lt.pasakinskas.homeworkexample.comments;
+package lt.pasakinskas.homeworkexample.persistence;
 
+import lt.pasakinskas.homeworkexample.models.Comment;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
